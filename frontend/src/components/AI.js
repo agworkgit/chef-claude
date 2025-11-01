@@ -3,7 +3,7 @@ export async function getRecipeFromChat(ingredientsArr) {
   try {
     console.log("Sending ingredients to backend:", ingredientsArr);
 
-    const response = await fetch("http://localhost:5000/api/getRecipe", {
+    const response = await fetch("/api/getRecipe", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ingredients: ingredientsArr }),
