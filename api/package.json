@@ -1,8 +1,7 @@
 {
-    "name": "api-functions",
-    "private": true,
-    "type": "module",
-    "dependencies": {
-        "openai": "^4.0.0"
+    "name": "chef-claude-api",
+    "version": "1.0.0",
+    "engines": {
+        "node": "20.x"
     }
 }
