@@ -1,12 +1,13 @@
 import OpenAI from "openai";
 
 export default async function handler(req, res) {
-    // Always set CORS headers first
-    res.setHeader('Access-Control-Allow-Origin', 'https://chef-claude-lyart.vercel.app'); // frontend domain
+    // ----- CORS headers -----
+    const FRONTEND_URL = 'https://chef-claude-lyart.vercel.app';
+    res.setHeader('Access-Control-Allow-Origin', FRONTEND_URL);
     res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-    // Preflight request
+    // Handle preflight OPTIONS request
     if (req.method === 'OPTIONS') {
         res.status(200).end();
         return;
@@ -14,12 +15,14 @@ export default async function handler(req, res) {
 
     // Only POST allowed
     if (req.method !== 'POST') {
-        return res.status(405).json({ error: 'Only POST allowed' });
+        res.status(405).json({ error: 'Only POST allowed' });
+        return;
     }
 
     const { ingredients } = req.body;
     if (!ingredients || !Array.isArray(ingredients)) {
-        return res.status(400).json({ error: 'Ingredients must be an array.' });
+        res.status(400).json({ error: 'Ingredients must be an array.' });
+        return;
     }
 
     try {

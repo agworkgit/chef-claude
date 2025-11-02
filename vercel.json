@@ -9,7 +9,15 @@
         }
     ],
     "routes": [
-        { "src": "/api/(.*)", "dest": "/api/$1.js" },
-        { "src": "/(.*)", "dest": "/index.html" }
+        {
+            "src": "/api/(.*)",
+            "headers": {
+                "Access-Control-Allow-Origin": "https://chef-claude-lyart.vercel.app",
+                "Access-Control-Allow-Methods": "POST,OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type"
+            },
+            "dest": "/api/$1.js"
+        },
+        { "src": "/(.*)", "dest": "/frontend/build/$1" }
     ]
 }
