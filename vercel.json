@@ -1,11 +1,7 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "api/**/*.js",
-            "use": "@vercel/node",
-            "config": { "installCommand": "npm install" }
-        },
+        { "src": "api/**/*.js", "use": "@vercel/node" },
         {
             "src": "frontend/package.json",
             "use": "@vercel/static-build",
