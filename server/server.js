@@ -5,7 +5,7 @@ import OpenAI from "openai";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Allow requests from your frontend
+// Allow requests from the frontend
 app.use(cors({
     origin: "https://chef-claude-lyart.vercel.app"
 }));
