@@ -1,4 +1,3 @@
-// AI.js
 export async function getRecipeFromChat(ingredientsArr) {
   try {
     console.log("Sending ingredients to backend:", ingredientsArr);
