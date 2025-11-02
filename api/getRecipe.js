@@ -1,25 +1,25 @@
 import OpenAI from "openai";
 
 export default async function handler(req, res) {
-    // CORS headers
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    // Always set CORS headers first
+    res.setHeader('Access-Control-Allow-Origin', 'https://chef-claude-lyart.vercel.app'); // frontend domain
     res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-    // Handle preflight OPTIONS request
+    // Preflight request
     if (req.method === 'OPTIONS') {
         res.status(200).end();
         return;
     }
 
-    // Only allow POST
-    if (req.method !== "POST") {
-        return res.status(405).json({ error: "Only POST allowed" });
+    // Only POST allowed
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Only POST allowed' });
     }
 
     const { ingredients } = req.body;
     if (!ingredients || !Array.isArray(ingredients)) {
-        return res.status(400).json({ error: "Ingredients must be an array." });
+        return res.status(400).json({ error: 'Ingredients must be an array.' });
     }
 
     try {
@@ -40,6 +40,6 @@ Return the recipe in markdown format.
         res.status(200).json({ recipe: completion.choices[0].message.content });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: "Failed to generate recipe" });
+        res.status(500).json({ error: 'Failed to generate recipe' });
     }
 }
