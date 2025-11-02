@@ -1,0 +1,15 @@
+{
+    "version": 3,
+    "functions": {
+        "getRecipe.js": {
+            "runtime": "nodejs18.x"
+        }
+    },
+    "routes": [
+        {
+            "src": "/api/getRecipe",
+            "dest": "/getRecipe.js",
+            "methods": ["GET", "POST", "OPTIONS"]
+        }
+    ]
+}
