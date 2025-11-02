@@ -1,4 +1,4 @@
-const API_BASE = "https://chef-claude-api.vercel.app";
+const API_BASE = "https://chef-claude-f34x.onrender.com";
 
 export async function getRecipeFromChat(ingredientsArr) {
   try {
