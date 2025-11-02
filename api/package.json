@@ -8,5 +8,8 @@
     },
     "dependencies": {
         "openai": "^4.27.0"
+    },
+    "scripts": {
+        "vercel-build": "echo 'No build needed'"
     }
 }
