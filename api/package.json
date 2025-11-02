@@ -1,7 +1,11 @@
 {
     "name": "chef-claude-api",
     "version": "1.0.0",
+    "main": "getRecipe.js",
     "engines": {
         "node": "20.x"
+    },
+    "dependencies": {
+        "openai": "^4.0.0"
     }
 }
