@@ -1,4 +1,5 @@
-const API_BASE = "https://chef-claude-api.vercel.app";
+const API_BASE = process.env.REACT_APP_API_BASE;
+
 export async function getRecipeFromChat(ingredientsArr) {
   try {
     const response = await fetch(`${API_BASE}/api/getRecipe`, {
