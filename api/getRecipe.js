@@ -1,16 +1,20 @@
 import OpenAI from "openai";
 
 export default async function handler(req, res) {
-    const FRONTEND_URL = "https://chef-claude-lyart.vercel.app"; // your frontend URL
+    const FRONTEND_URL = "https://chef-claude-lyart.vercel.app";
+
+    // CORS headers
     res.setHeader("Access-Control-Allow-Origin", FRONTEND_URL);
     res.setHeader("Access-Control-Allow-Methods", "POST,OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
+    // Handle preflight
     if (req.method === "OPTIONS") {
         res.status(200).end();
         return;
     }
 
+    // Only allow POST
     if (req.method !== "POST") {
         res.status(405).json({ error: "Only POST allowed" });
         return;

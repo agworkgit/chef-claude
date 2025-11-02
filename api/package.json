@@ -2,14 +2,13 @@
     "name": "chef-claude-api",
     "version": "1.0.0",
     "main": "getRecipe.js",
-    "type": "module",
-    "engines": {
-        "node": "22.x"
-    },
     "dependencies": {
         "openai": "^4.27.0"
     },
     "scripts": {
-        "vercel-build": "echo 'No build needed'"
+        "vercel-build": "echo 'Building serverless functions...' && exit 0"
+    },
+    "engines": {
+        "node": "22.x"
     }
 }
