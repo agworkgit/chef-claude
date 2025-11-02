@@ -1,6 +1,8 @@
+const API_BASE = "https://chef-claude-api.vercel.app"; // your deployed API project
+
 export async function getRecipeFromChat(ingredientsArr) {
   try {
-    const response = await fetch("/api/getRecipe", {
+    const response = await fetch(`${API_BASE}/api/getRecipe`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ingredients: ingredientsArr })
