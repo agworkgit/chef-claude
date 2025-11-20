@@ -4,7 +4,7 @@ export const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
         <footer>
-            <small>&copy; Casian Grigore {currentYear}</small>
+            <small>&copy; Alex Grigore {currentYear}</small>
         </footer>
     );
 };
